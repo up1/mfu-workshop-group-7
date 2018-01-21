@@ -45,7 +45,7 @@ public class PaymentServlet extends HttpServlet {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(1, " + map.getProductName() + ",'" + new Date() + "'," + map.getPrice() + "," + map.getName() + ")";
+			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(1, '" + map.getProductName() + "','" + new Date() + "'," + map.getPrice() + "," + map.getName() + ")";
 			
 			PreparedStatement dbStatement = conn.prepareStatement(sql);
 			dbStatement.executeUpdate();
