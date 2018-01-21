@@ -15,7 +15,12 @@
         ajax.onload = receiveResponse;
         ajax.open("POST", "http://localhost:8080/api/payment", true);
         ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        ajax.send(JSON.stringify({ name: "Demo2" }));
+        ajax.send(JSON.stringify({ userId: 
+        	"1",
+        	name: "niwat",
+        	balance: "1500",
+        	productName: "Cocao",
+        	price: "55"}));
     }
     function receiveResponse() {
         console.log(this.responseText);
@@ -64,8 +69,8 @@
                 <input name="btnButton" type="button" value="Print" onClick="JavaScript:window.print();">
             </div>
         </div>
-        <a href="payment.html" class="btn btn-large"><i
-            class="icon-arrow-left"></i> Check Bill </a>
+        <button onclick="sendDataToServer()" class="btn btn-large"><i
+            class="icon-arrow-left"></i> Check Bill </button>
     </div>
 </body>
 
