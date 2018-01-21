@@ -23,8 +23,8 @@ public class AccountServlet extends HttpServlet {
 	public static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
 	public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/wallet";
 
-	static final String USER = "root";
-	static final String PASS = "123";
+	static final String USER = "user01";
+	static final String PASS = "xitgmLwmp";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
