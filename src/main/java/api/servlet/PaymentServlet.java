@@ -2,12 +2,14 @@ package api.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,10 +44,12 @@ public class PaymentServlet extends HttpServlet {
 			// Open a connection
 			Connection conn = DriverManager.getConnection(MYSQL_URL, USER, PASS);
 
+			
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(1, '" + map.getProductName() + "','" + new Date() + "'," + map.getPrice() + "," + map.getName() + ")";
+			
+			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(1, '" + map.getProductName() + "','2018-01-21 '," + map.getPrice() + ",'" + map.getName() + "')";
 			
 			PreparedStatement dbStatement = conn.prepareStatement(sql);
 			dbStatement.executeUpdate();
