@@ -7,17 +7,45 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script language="JavaScript">
+var ajax = new XMLHttpRequest();
+ajax.onload = functionName;
+ajax.onerror = errorFunctionName;
+ajax.open("GET", "http://localhost:8080/api/account", true);
+ajax.send();
+function functionName() {
+    console.log(this);
+    if (this.status == 200) {
+        var json = JSON.parse(this.responseText);
+        var _id = json.userId;
+        var _name = json.name;
+        document.getElementById("_id").innerHTML = _id;
+        document.getElementById("_name").innerHTML = _name;
+    } else {
+        // TODO
+    }
+}
+function errorFunctionName(e) {
+    console.log(this);
+    console.error(e);
+}
+</script>
+
 </head>
 <body>
     
 <br>
 <br>
 <div class="ts1">WELCOME TO MFU SELLING</div>
+<li>id: <span id="_id"></span></li>
+<li>name: <span id="_name"></span></li>
 <br>
 <br>
 <br>
 <div class="ts2">
     <img src="image\Sell.jpg" class="w3-round-small" alt="Norway" style="width:50% ">
+    
 </div>
 <br>
 <br>
