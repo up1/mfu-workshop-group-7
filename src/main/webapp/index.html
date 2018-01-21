@@ -1,56 +1,104 @@
 <html>
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>MFU SELLING </title>
+<title>MFU SELLING</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <script language="JavaScript">
-var ajax = new XMLHttpRequest();
-ajax.onload = functionName;
-ajax.onerror = errorFunctionName;
-ajax.open("GET", "http://localhost:8080/api/account", true);
-ajax.send();
-function functionName() {
-    console.log(this);
-    if (this.status == 200) {
-        var json = JSON.parse(this.responseText);
-        var _id = json.userId;
-        var _name = json.name;
-        document.getElementById("_id").innerHTML = _id;
-        document.getElementById("_name").innerHTML = _name;
-    } else {
-        // TODO
-    }
-}
-function errorFunctionName(e) {
-    console.log(this);
-    console.error(e);
-}
+
+	var ajax = new XMLHttpRequest();
+	ajax.onload = functionName;
+	ajax.open("GET", "http://localhost:8080/api/account", true);
+	ajax.onerror = errorFunctionName;
+	ajax.send();
+	function functionName() {
+		
+		console.log(this);
+		if (this.status == 200) {
+			var json = JSON.parse(this.responseText);
+			var _id = json.userId;
+			var _name = json.name;
+			var _balance = json.balance
+			document.getElementById("_id").innerHTML = _id;
+			document.getElementById("_name").innerHTML = _name;
+			document.getElementById("_balance").innerHTML = _balance;
+			
+		} else {
+			// TODO
+		}
+		
+	}
+	function errorFunctionName(e) {
+		console.log(this);
+		console.error(e);
+	}
+</script>
+
+<script language="JavaScript">
+	function sendDataToServer() {
+		var ajax = new XMLHttpRequest();
+		ajax.onload = receiveResponse;
+		ajax.open("POST", "http://localhost:8080/api/hello", true);
+		ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		ajax.send(JSON.stringify({
+			name : "Demo2"
+		}));
+	}
+	function receiveResponse() {
+		console.log(this.responseText);
+	}
 </script>
 
 </head>
+
 <body>
-    
-<br>
-<br>
-<div class="ts1">WELCOME TO MFU SELLING</div>
-<li>id: <span id="_id"></span></li>
-<li>name: <span id="_name"></span></li>
-<br>
-<br>
-<br>
-<div class="ts2">
-    <img src="image\Sell.jpg" class="w3-round-small" alt="Norway" style="width:50% ">
-    
-</div>
-<br>
-<br>
-<div class="w3-container">
-    <a href="#" class="w3-button w3-yellow">GO</a>
-</div>
+
+	<br>
+	<br>
+	<div class="ts1">WELCOME TO MFU SELLING</div>
+	<br>
+	<br>
+	<br>
+	<div class="ts2">
+		<img src="image\Sell.jpg" class="w3-round-small" alt="Norway"
+			style="width: 50%">
+	</div>
+	<br>
+	<br>
+	<div class="w3-container">
+		<a href="payment.html" class="w3-button w3-yellow">GO</a>
+	</div>
+
+
+	<br>
+	<br>
+	<div class="ts1">WELCOME TO MFU SELLING</div>
+	<li>id: <span id="_id"></span></li>
+	<li>name: <span id="_name"></span></li>
+	<li>balance: <span id="_balance"></span></li>
+	<li>product Name: <span id ="_product_name"> CoCao</span></li>
+	<li>price: <span id ="_price">55.00</span></li>
+	<li>service charge: <span id>1.00</span></li>
+	<br>
+	<br>
+	<br>
+	<div class="ts2">
+		<img src="image\Sell.jpg" class="w3-round-small" alt="Norway"
+			style="width: 50%">
+
+	</div>
+	<br>
+	<br>
+	<div class="w3-container">
+		<a href="#" class="w3-button w3-yellow">GO</a>
+	</div>
+
 </body>
+
 </html>
