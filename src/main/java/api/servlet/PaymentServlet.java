@@ -49,7 +49,7 @@ public class PaymentServlet extends HttpServlet {
 			Statement stmt = conn.createStatement();
 			String sql;
 			
-			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(1, '" + map.getProductName() + "','2018-01-21 '," + map.getPrice() + ",'" + map.getName() + "')";
+			sql = "INSERT INTO wallet.receipt (orderId, description, orderDate, totalPrice, name) VALUES(" + stmt.getGeneratedKeys() + ", '" + map.getProductName() + "','" + new java.sql.Date(System.currentTimeMillis()) + "'," + map.getPrice() + ",'" + map.getName() + "')";
 			
 			PreparedStatement dbStatement = conn.prepareStatement(sql);
 			dbStatement.executeUpdate();
