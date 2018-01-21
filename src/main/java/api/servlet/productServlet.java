@@ -37,7 +37,7 @@ public class productServlet extends HttpServlet {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT * FROM wallet.product";
+			sql = "SELECT * FROM wallet.product where productId = 1";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			Product product = new Product();

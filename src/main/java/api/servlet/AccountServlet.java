@@ -39,7 +39,7 @@ public class AccountServlet extends HttpServlet {
 			// Execute SQL query
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT * FROM wallet.account";
+			sql = "SELECT * FROM wallet.account where userId = 1";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			Account account = new Account();
