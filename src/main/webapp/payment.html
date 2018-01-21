@@ -8,6 +8,19 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <script language="JavaScript">
+    function sendDataToServer() {
+        var ajax = new XMLHttpRequest();
+        ajax.onload = receiveResponse;
+        ajax.open("POST", "http://localhost:8080/api/payment", true);
+        ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        ajax.send(JSON.stringify({ name: "Demo2" }));
+    }
+    function receiveResponse() {
+        console.log(this.responseText);
+    }
+</script>
 </head>
 
 <body>
@@ -53,9 +66,6 @@
         </div>
         <a href="payment.html" class="btn btn-large"><i
             class="icon-arrow-left"></i> Check Bill </a>
-
-
-
     </div>
 </body>
 
